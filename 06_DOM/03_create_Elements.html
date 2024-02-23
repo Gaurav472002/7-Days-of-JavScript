@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Chai aur Code</title>
+</head>
+<body style="background-color: black; color:white;">
+    
+</body>
+
+
+<!-- create new elements  -->
+<script>
+
+    const div = document.createElement('div') // crate a new element
+    // div.innerText="Hello World" 
+
+    // set the properties of the new element
+
+    div.className="Main"
+    div.id = Math.round((Math.random()*10)+1)
+    div.style.backgroundColor ="green"
+    div.style.padding ="12px"
+    div.setAttribute("title"," this is a title") ; // we can set the properties using the setattribute method as well
+
+   
+    // rather than div.innerText use the below method because it is more optimized because div.innertext extracts the value then sets it
+    // But the below approach replaces the value directly
+    
+    // div.innerText="Hello World"
+    
+    const addText = document.createTextNode("Hello World") // optimzed approach however you can use any
+    div.appendChild(addText)
+
+     // attach this div to the document so that it can be displayed on the web browser
+
+     document.body.appendChild(div)
+
+     
+// we can create a funciton like this which accepts the text as argument and sets the heading     
+// Create a heading element (e.g., <h1>) and set its text
+
+//      function setHeading(text) {
+//     
+//     const heading = document.createElement('h1');
+//     heading.textContent = text;
+
+//     // Append the heading to the document body
+//     document.body.appendChild(heading);
+// }
+
+// // Call the setHeading function with the desired text
+// setHeading("Page Heading");
+
+
+
+</script>
+
+
+</html>

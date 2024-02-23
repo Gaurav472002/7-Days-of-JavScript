@@ -38,14 +38,15 @@ directly access it using document directly-->
 
 <!-- document.querySelector will give you the first occurence of the element   document.querySelector('.heading') or ('#id')
 
-document.querySelectorAll will give you the all  occurences of that element 
+document.querySelectorAll will give you the all  occurences of that element  it returns a node list
 
 document.querySelector('input[type="password"]') // to select a specific input
 -->
 
- <!-- extracting the first item from unordered list
+ <!-- extracting the first item from unordered list 
 
-const list = document.querySelector('ul')  // first get hold of the list
+    first select the ul using the querySelector method and then
+const list = document.querySelector('ul')  // first get hold of the list and the use list.queryselector to get the first li element
 
 // now get hold of the element
 const item1 = list.querySelector('li')  this will return the first element of the list  -->  
@@ -54,28 +55,8 @@ const item1 = list.querySelector('li')  this will return the first element of th
     but not an array but similar to array
 
 Node List does not supports function like filter reduce and map but it supports the for Each loop 
-even if there is only 1 element in the nodeList we can modify it's properties using the [0]th index -->
+even if there is only 1 element in the nodeList we can modify it's properties using the [0]th index 
 
-<!-- when we use the Method getElementsByClassName we get [HTML collection] instead of [nodeList] but forEach is not applicable for this method 
-so to use method like for each , map , filter we can use the [Array.from()] to convert the htmlcollection to array and then apply those methods
-
-
-
-To change the innnerHTML use the following syntax  -> document.getElementbyId('first').innerHTML = "<h1> Hello </h1>"
-
-
-Behind the Scenes the class is portrayed as the ClassName to get hold of the className of any object use the following syntax
-
-document.querySelector('#one').className -> this will return the class Name of the object
-
-to get hold of other attributes we can use the following syntax
-
-document.querySelector('#one').getAttribute('id') to get the id
-document.querySelector('#one').getAttribute('class') to get the class
-
-to set the attribute  document.querySelector('#one').setAttribute('class','name of the class')
-
-to set the style of the elements     Element.style.backgroundcolor='green'   Element.style.padding='20px'
 
 apply for each for each li element
 
@@ -84,6 +65,39 @@ const list = document.querySelectorAll('li') // this returns a nodelist on which
 list.forEach((li)=>{
     li.style.color='green'
 })
+
+
+-->
+
+
+<!-- when we use the Method [getElementByClassName] we get [HTML collection] instead of [nodeList] but forEach is not applicable for this method 
+so to use method like for each , map , filter we can use the [Array.from()] to convert the htmlcollection to array and then apply those methods
+
+
+
+To change the innnerHTML use the following syntax  -> document.getElementbyId('first').innerHTML = "<h1> Hello </h1>"
+we can get hold of the properties of the element after selecting the element from the document.getElementbyId method for example
+document.getElementbyId('id').className
+
+Behind the Scenes the class is portrayed as the ClassName to get hold of the className of any object use the following syntax
+
+document.querySelector('#one').className -> this will return the class Name of the object
+
+
+
+to get hold of other attributes we can use the following syntax
+
+document.querySelector('#one').getAttribute('id') to get the id
+document.querySelector('#one').getAttribute('class') to get the class
+
+to set the attribute  
+
+document.querySelector('#one').setAttribute('class','name of the class')
+
+WE CAN ALSO CHANGE THE STYLE OF THE ELEMENTS USING THE style.backgroungcolr
+to set the style of the elements     Element.style.backgroundcolor='green'   Element.style.padding='20px'
+
+
 
 DIFFERENCE BETWEEN NODELIST AND HTMLCOLLECTIONS
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chai aur Code</title>
+</head>
+<body style="background-color: black; color:wheat">
+    
+    <ul class ="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+
+<script>
+
+    // function to addElemnt to the list
+
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML =`${langName}`
+        document.querySelector('.language').appendChild(li)
+
+    }
+
+    // adding elements
+    addLanguage("Python")
+    addLanguage("C++")
+
+    // problem with this code is that it traverses the whole dom tree for appending elements at the end each time
+
+    // this is a optimized function to add a list item 
+    
+    function optimzedAdd(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    optimzedAdd("Golang") // this is the optimized approach
+
+
+
+    // edit the elements
+
+    const secondLang =document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML ="Express"
+
+    // optimized approach
+    const newLi=document.createElement('li')
+    newLi.textContent ="Express"
+    secondLang.replaceWith(newLi)
+
+
+    const firstLang =  document.querySelector("li:first-child")
+    firstLang.outerHTML ='<li>TypeScript </li>'
+
+    // removing elements
+
+    const LastLang = document.querySelector('li:last-child')
+    LastLang.remove()
+
+</script>
+</html>

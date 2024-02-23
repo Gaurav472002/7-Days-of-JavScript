@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="parent">
+
+        <!-- THis is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+
+    </div>
+    
+</body>
+
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent)  
+
+    // console.log(parent.children) // this will return an html collection of all the elements inside the parent div
+    
+    // console.log(parent.children[0].innerHTML) // will get the first li element
+
+    // we can traverse over the HTMLCollection
+
+    // for (let index = 0; index < parent.children.length; index++) {
+    //     console.log(parent.children[index].innerHTML)
+        
+    // }
+
+    console.log(parent.firstElementChild) ; // first child of the parent
+    console.log(parent.lastElementChild)  // last child of the parent
+
+    const day1 = document.querySelector('.day') // get hold of first element direclty
+    console.log(day1)
+
+    // the below methods are less costly operations as compared to document.querySelector who traverses the whole DOM tree
+
+    console.log(day1.parentElement) ; // track the parent
+
+    console.log(day1.nextElementSibling); // this will print tuesday
+
+
+    console.log("Nodes:",parent.childNodes); /* this will be more than 4 because we add line breaks like we have mentioned each div 
+    in different lines  and many more things in our code which are also nodes. 
+    But only one line break is counted after that if we continuously add line breaks they are not counted
+    //comments are also considered in the node list
+   
+    The whole react is implemented via the childNodes concept
+    */
+
+
+
+</script>
+
+</html>
