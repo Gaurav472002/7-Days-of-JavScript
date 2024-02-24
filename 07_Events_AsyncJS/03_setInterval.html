@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Chai Aur Coffee</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+
+<script>
+
+    // this method is used to perform an action after a certain period of time continuously
+    // setInterval(()=>{
+    //     console.log(Date.now()) // this will print the current date  after 1 sec continuously
+    // },1000)
+
+    const sayMyName = function(str){
+        console.log(str)
+    }
+
+    
+   
+    let nameid ;
+    // start using the start button
+    document.querySelector('#start').addEventListener('click',()=>{
+        nameId=setInterval(sayMyName,1000,"Gaurav")      // we can also pass arguments as well direclty from here
+    })
+
+    
+    // stop using the stop button
+    document.querySelector('#stop').addEventListener('click',()=>{
+        clearInterval(nameId)  // clearInterval is used to stop the event
+    })
+
+    
+
+    
+
+</script>
+</html>

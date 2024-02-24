@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Chai Aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+
+    const SayGaurav = ()=>{
+        console.log("gaurav")
+    }
+
+    // this method is used to perform a task after a certain period of time 
+    //it accepts a callback as an input
+    
+    // setTimeout(function(){
+    //     console.log("Gaurav")
+    // },2000)  // itni der ka time mujhe do then kuch karenge taking timeout
+
+    // we can also pass the reference
+
+    const changeHeader = ()=>{
+        document.querySelector('h1').
+        innerHTML ="Best JS series"
+    }
+    setTimeout(SayGaurav,2000)
+    const stopHeader=setTimeout(changeHeader,2000) // 2 sec
+
+    // we can stop this event from happening by using the [clearTimout] Method when we will click on the stop button which will stop the setTimeOut
+    // clearTimeout will stop that event from happening before it's scheduled time
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(stopHeader) // we will have to pass the reference of the timeout function
+        console.log("STOPPED")
+    })
+
+</script>
+</html>

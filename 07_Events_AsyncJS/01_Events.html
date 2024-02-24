@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    // All the events in js are executed sequentially except few cases
+
+    // document.getElementById('owl').onclick = function(){ image clicked event always perform via js rather than injecting code in the html
+    //     alert("owl clicked")
+    // }
+    
+    // the above method is a feasible approach however it is not recommended to use it because it provides less functionality
+
+     // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false)  // the third parameter is false by default so it is optional to write it
+
+
+
+
+     // attachEvent() this one is a previous method for running the events
+    // jQuery -  this is a framework used to execute the events
+
+
+    // Important Events to study 
+
+    // type, timestamp, defaultPrevented--> stops the default behavior of event
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode  --> to determine which key was pressed
+
+    
+    /* We are adding the EventListner on the list as well as owl present inside the list
+    So when we click on the owl image then both the event listners will be active so at first the owl clicked will be printed and then
+    the clicked inside the ul will be printed . 
+    So this event works from inside to outside and under event propagation this is called [event bubbling]
+
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+/ If we set  the values as true then at first the top event will be executed and then the bottom one will be executed. 
+
+This is called [Event Capturing]. This works from outside to inside . This is not mandatory this depends on the use cases of the user. */
+
+      // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()  // this will stop the top event and only owl clicked will be executed this prevent event from bubling upar nahi jayega
+    
+    // }, false)  
+
+   
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();  // PREVENTS THE DEFAULT BEHAVIOR OF ANCHOR TAG
+    //     e.stopPropagation() 
+    //     console.log("google clicked");
+    // }, false)
+   
+    
+
+    // remove the image which was clicked
+    document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {  // WITHOUT THIS IF WE CLICK ON THE LINK THEN IT'S PARENT IS THE WHOLE UL WHICH WILL BE REMOVED
+            // console.log(e.target.id);
+            let removeIt = e.target.parentNode   // the parent node will be the whole li child is the img element
+            removeIt.remove()
+        }
+    
+        
+    })
+    
+    //removeIt.parentNode.removeChild(removeIt) // ANOTHER METHOD TO REMOVE
+</script>
+</html>
