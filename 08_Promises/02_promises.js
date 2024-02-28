@@ -27,6 +27,7 @@ const promiseOne = new Promise(function(resolve,reject){
         console.log("Async task 1 is complete")
 
         resolve() // now promise 1 will be printed after async task 1 is completed
+        // this signals that the async task was completed
     },1000)
 })
 
@@ -78,7 +79,7 @@ promiseThree.then(function(user){  // here the object will be returned from the 
 const promisefour = new Promise(function(resolve,reject){
 
     setTimeout(function(){
-        let error =false
+        let error =1
         if(!error){
             resolve({username:"JavaScript",email:"jbcd@gmail.com"})
         }
@@ -89,8 +90,8 @@ const promisefour = new Promise(function(resolve,reject){
 })
 promisefour.then(()=>{  // then handles the case of resolves
     console.log("No error")
-}).catch(()=>{   // catch handles the case of rejections
-    console.log("Error")
+}).catch((err)=>{   // catch handles the case of rejections
+    console.log(err)
 })
 .finally(()=>{
     console.log("I am executed no matter what")
