@@ -214,4 +214,5 @@ Fetch basically starts a process for fetching a resource from the network return
 The fetch operations are executed on a priority basis because it uses a different high priorty queue called micro task queue.  
 This queue has a higher priority than the normal task queue  
 we can send many other headers along with the URL in fetch fetch('URL', {headers})
+NETWORK ERROR 404 is also considered in the onfulfilled array.
 */
