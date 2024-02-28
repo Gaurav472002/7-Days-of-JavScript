@@ -212,4 +212,6 @@ but not in node js.  Then the Node js team wrote their own API implementations t
 
 Fetch basically starts a process for fetching a resource from the network returning a promise which is fulfilled once the response is available.
 The fetch operations are executed on a priority basis because it uses a different high priorty queue called micro task queue.  
-This queue has a higher priority than the normal task queue  */
+This queue has a higher priority than the normal task queue  
+we can send many other headers along with the URL in fetch fetch('URL', {headers})
+*/
