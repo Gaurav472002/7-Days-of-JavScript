@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    
+    <!-- // we want to change the bg color of the page based on the color  -->
+
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+<script>
+
+    // this will work what will happen for larger data  sets
+    // document.querySelector('#orange').onclick=()=>{
+    //     document.body.style.backgroundColor ='orange'
+    // }
+    // document.querySelector('#Green').onclick=()=>{
+    //     document.body.style.backgroundColor =`Green`
+    // }
+
+    // but what will you do if someone asked you to do the same with 500 buttons will you create 500 buttons?😂 so now let us design a function
+
+</script>
+<script>
+
+    // function clickHandler(color){
+    //     document.body.style.backgroundColor =`${color}`
+    // }  
+
+    // this function was generating errros
+
+    function clickHandler(color){
+
+
+        
+
+        // document.body.style.backgroundColor =`${color}` // this will generate error
+
+    // by doing this the bg will be orange automatically without even clicking by using the previous function definition
+    // we were expecting a function but we got a function executable which gets executed automatically
+        
+
+    
+
+    // we are returning a function instead of calling the function directly
+    // due to lexical scoping the inner function has access to the color property of the outer property
+       return function(){
+            document.body.style.backgroundColor =`${color}`
+        
+            //application of lexical scoping sirf function bahar nahi jayega pura lexical scope jayega
+       }
+    }
+
+//    onclick needs a function reference not a function executable 
+
+    document.getElementById("orange").onclick= clickHandler("orange") 
+    document.getElementById("green").onclick= clickHandler("green")
+    
+    // by doing this the bg will be orange automatically without even clicking by using the previous function definition
+
+    // we were expecting a function but we got a function executable so we will have to change the function definition
+
+</script>
+</html>

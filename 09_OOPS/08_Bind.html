@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    
+    <button>Button Clicked </button>
+
+</body>
+
+<script>
+
+    class React{
+
+        constructor(username){
+
+            // hardcoded values
+            this.username=username;
+
+            this.library ="React"
+            this.server ="https://localhost:3000"
+            
+
+            //requirement --> the moment this page is loaded an object must be created of React class and we get the reference of this button
+            // and there will be a method which will print something like button clicked
+
+            document.querySelector('button').addEventListener('click', this.handleClick)
+
+               // with this approach we were getting the reference of the  button in this but we were not able to
+            //  access the properties of the class to access those properties we will have to bind it
+            // along with the button reference we are also sending the properties of the class to the handleClick function using the bind
+
+            document.querySelector('button').addEventListener('click', this.handleClick.bind(this)) 
+            
+         
+        }
+
+        // implementation for handleClick function
+
+        handleClick(){
+        console.log("button clicked") // this will be printed normally
+        console.log(this)  // we have the reference of the button
+        console.log(this.server)  // we won't be able to get this without bind method
+        console.log(this.username);
+        }
+    }
+
+    const app = new React("gaurav")
+    
+
+
+</script>
+</html>
+
+/*In simple terms, the bind method in this code is used to ensure that when a function is called as an event handler (like handleClick in this
+case), the this keyword inside that function refers to the instance of the class where the method is defined.
+
+When you attach an event listener to an HTML element and specify a function as the event handler, by default, the this keyword inside that
+function refers to the element itself, not to the class instance.
+
+So, by using bind(this) when attaching the event listener, you're essentially telling JavaScript to make sure that inside the handleClick method, 
+this refers to the instance of the React class where the method is defined. This allows you to access properties and methods of the class 
+using this inside the event handler.
+
+In this specific code:
+
+Without bind(this), this.server and this.username inside the handleClick method would be undefined because this would refer to the button element, 
+not the class instance.
+With bind(this), this.server and this.username inside the handleClick method correctly refer to the properties of the React class instance. */
