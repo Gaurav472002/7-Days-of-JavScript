@@ -66,5 +66,27 @@
 
     // we were expecting a function but we got a function executable so we will have to change the function definition
 
+
+/*  Defining the function: The clickHandler function is like a recipe that tells the computer what to do when it's called. 
+It takes one input, which is a color.
+
+Creating a closure: Inside the clickHandler function, there's another little recipe (a function) that's created and then returned. 
+This inner function is like a mini-program that does something specific. But here's the interesting part: it remembers the color 
+that was passed to clickHandler, even after clickHandler finishes running. It's like putting a note in a secret drawer 
+that only this mini-program can see.
+
+Setting up the click event: When you call clickHandler and pass it a color (like "orange" or "green"), 
+it immediately runs the outer function and returns the inner function. But it doesn't run the inner function just yet; it just sets it aside, 
+ready to be used later.
+
+Associating with buttons: The returned inner function is then assigned to the onclick property of each button. So, when you click a button, 
+it's like opening that secret drawer and running the mini-program inside. And because that mini-program remembers the color 
+from when clickHandler was called, it knows what color to change the background to.
+
+In simple terms, clickHandler creates little programs (inner functions) that remember which color they're supposed to change the background to.
+When you click a button, it runs the little program associated with that button, and the background changes to the color it remembers. 
+This way, you don't need to write separate code for each button; you just create these little programs once and let them do their job when 
+needed. */
+
 </script>
 </html>
