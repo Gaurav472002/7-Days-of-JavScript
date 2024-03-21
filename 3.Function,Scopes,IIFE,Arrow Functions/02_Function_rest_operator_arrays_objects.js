@@ -50,8 +50,9 @@ const user ={
     age:18
 }
 
-function handleObject(anyobject){
-    console.log(`the user name is ${anyobject.name} and the age is ${anyobject.age}`)
+// object destructuring
+function handleObject({name,age}=anyobject){
+    console.log(`the user name is ${name} and the age is ${age}`)
 }
 handleObject(user)
 

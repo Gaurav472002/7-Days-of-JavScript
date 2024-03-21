@@ -121,3 +121,13 @@ The reason why this generates an error while the first code snippet does not is 
 in variable hoisting the same way var does. With let, variables are not accessible before their declaration.
  In contrast, var variables are hoisted to the top of their containing function or global scope,
   which is why the first snippet doesn't produce an error. */
+
+
+// wish();
+
+// var wish=function(){
+//     console.log("Hello User how are you")
+// }
+
+// functions defined using the var keyword are not hoisted as well
+// Normal funtion declarations are hoisted at the top

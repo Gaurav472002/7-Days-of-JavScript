@@ -48,7 +48,7 @@ coffee()
 
 // Implicit return arrow function no  return statement required by default the compiler understands we want to return the required result
 // return statement will be required if we are using {} 
-const addTwo = (num1,num2)=>num1+num2
+const addTwo = (num1,num2)=>num1+num2;
 
 // const addTwo = (num1,num2)=>(num1+num2) // this is also applicable this will be useful when we want to return an object
 
@@ -61,6 +61,50 @@ console.log(addTwo(100,123))
 
 const addOne=(num)=>num+=1;
 console.log(addOne(200))
+
+
+
+/*In a regular function, the this keyword refers to the object from which you call the function. 
+In an arrow function, the this keyword refers to the object from which you define the function. */
+
+
+
+const person2 = {
+    name: 'Nathan',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+  
+    showSkills: function() {
+      this.skills.forEach(function (skill) {
+        console.log(`${this.name} is skilled in ${skill}`);
+      });
+    },
+  };
+  
+  person2.showSkills();
+
+//   Here, the this keyword refers to the global Window object because we called the showSkills() method outside of the person object.
+//In the global object, the name property is undefined. 
+
+
+const person = {
+    name: 'Nathan',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+  
+    showSkills: function() {
+      this.skills.forEach((skill) => {
+        console.log(`${this.name} is skilled in ${skill}`);
+      });
+    },
+  };
+  
+  person.showSkills();
+
+  /* Here, the this keyword refers to the object from which the arrow function is defined, which is the person object.
+
+  This one behavior is what makes people prefer arrow functions, 
+  because it makes more sense to have this refer to the object from which you define that function rather than from which you call it. */
+  
+  
 
 
 
